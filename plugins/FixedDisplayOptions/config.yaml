@@ -1,0 +1,15 @@
+id  : FixedDisplayOptions
+key : fixeddisplayoptions
+name: Fixed Entry Display Options
+version: 0.1
+author_name: Alfasado Inc.
+author_link: http://alfasado.net/
+l10n_class: FixedDisplayOptions::L10N
+description: '<__trans phrase="When the administrator's entry(page) display options is preserved, the setting is applied to all users.">'
+settings:
+    entry_prefs:
+    page_prefs:
+callbacks:
+    MT::Permission::post_save: $fixeddisplayoptions::FixedDisplayOptions::Plugin::_set_entry_prefs
+    MT::App::CMS::template_source.edit_entry: $fixeddisplayoptions::FixedDisplayOptions::Plugin::_hide_entry_prefs
+
